@@ -27,7 +27,7 @@
           <% if @user == nil %>
             <a href="/users/new">Sign Up</a> | <a href="/login">Login</a>
           <% else %>
-            <%= @user["username"] %> | <a href="/logout">Logout</a>
+            <%= @user["username"] %> | <a href="/logout">Logout</a> | <a href="/places">Home</a> 
           <% end %>
         </span>
       </div>
@@ -39,9 +39,7 @@
         <%= flash["notice"] %>
       </div>
     <% end %>
-    <div>
-      <a class="btn btn-primary" href="/" role="button">Home</a>  
-    </div>
+
 
     <%= yield %>
   </div>
