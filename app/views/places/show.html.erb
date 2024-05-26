@@ -1,6 +1,6 @@
 <h1><%= @place["name"] %></h1>
 
-<h2>All Entries</h2>
+<h2>My Entries</h2>
 <% for entry in @entries %>
   <h3><%= entry["title"] %></h3>
   <h6><%= entry["occurred_on"] %></h6>
@@ -14,3 +14,4 @@
 <p>
   <a class="btn btn-primary" href="/places/" role="button">Back to All Places</a>  
 </p>
+
