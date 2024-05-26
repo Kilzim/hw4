@@ -10,10 +10,9 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @user = User.find_by({ "id" => session["user_id"] })
     @place = Place.find_by({ "id" => params["id"] })
-    @entries = Entry.where({ "place_id" => @place["id"] })
-    @entries = Entry.where({ "user_id" => @user["id"] })
+    @user = User.find_by({ "id" => session["user_id"] })
+    @entries = Entry.where({ "place_id" => @place["id"], "user_id" => @user["id"] })
   end
 
   def new
