@@ -1,5 +1,13 @@
-<h1>Welcome to Tacostagram</h1>
+<h1><u>Welcome to Tacostagram</u></h1>
+<ul> </ul>
+<h1>Places</h1>
 
+<ul>
+  <% for place in @places %>
+    <li><a href="/sessions/new" class = "btn btn-light btn-sm"><%= place["name"] %></a></li>
+<p></p> 
+  <% end %>
+</ul>
 <p>
 </p>
 
