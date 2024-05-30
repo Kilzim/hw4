@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
   def index
     @user = User.find_by({ "id" => session["user_id"] })
     if @user != nil
-      @places = Place.all
+      @places = Place.order(:name)
     else
       redirect_to "/users/"
     end
@@ -23,11 +23,17 @@ class PlacesController < ApplicationController
     if @user != nil
       @place = Place.new
       @place["name"] = params["name"]
+      if @place.name.present? && Place.find_by(name: @place.name).nil?
       @place.save
+      redirect_to "/places"
+      else
+        flash["notice"] = "Please fill in valid Place"
+        render :new
+      end
     else
       flash["notice"] = "Login first."
+      redirect_to "/places"
     end
-    redirect_to "/places"
   end
 
 end

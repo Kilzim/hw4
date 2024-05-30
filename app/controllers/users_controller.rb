@@ -4,7 +4,7 @@ def users
 end
 
 def index
-  @places = Place.all
+  @places = Place.order(:name)
 end
 
   def new
@@ -18,7 +18,7 @@ end
 
     if @user.username.present? && @user.email.present? && @user.password.present?
     @user.save
-    redirect_to "/"
+    redirect_to "/login"
     else
       flash["notice"] = "Please fill in all fields."
       render :new
