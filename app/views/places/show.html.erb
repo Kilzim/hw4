@@ -2,6 +2,7 @@
 
 <h2>My Entries</h2>
 
+
 <div class="row">
   <% for entry in @entries do %>
     <div class="col-md-4">
@@ -15,6 +16,7 @@
     </div>
   <% end %>
 </div>
+
 
 <p>
   <a class="btn btn-primary" href="/entries/new?place_id=<%= @place["id"] %>" role="button">New Entry</a>  

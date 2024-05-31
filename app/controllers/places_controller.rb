@@ -1,7 +1,6 @@
 class PlacesController < ApplicationController
 
   def index
-    @user = User.find_by({ "id" => session["user_id"] })
     if @user != nil
       @places = Place.order(:name)
     else
@@ -11,7 +10,6 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find_by({ "id" => params["id"] })
-    @user = User.find_by({ "id" => session["user_id"] })
     @entries = Entry.where({ "place_id" => @place["id"], "user_id" => @user["id"] })
   end
 
@@ -19,7 +17,7 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @user = User.find_by({ "id" => session["user_id"] })
+
     if @user != nil
       @place = Place.new
       @place["name"] = params["name"]
