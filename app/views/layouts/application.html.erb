@@ -25,9 +25,9 @@
         <span class="navbar-text">
           <% @user = User.find_by({ "id" => session["user_id"] }) %>
           <% if @user == nil %>
-            <a href="/users/new">Sign Up</a> | <a href="/login">Login</a>
+            <a class="btn btn-primary" href="/users/new" role="button">Sign Up</a> | <a class="btn btn-primary" href="/login" role="button">Login</a>
           <% else %>
-            <%= @user["username"] %> | <a href="/logout">Logout</a> | <a href="/places">Home</a> 
+           <a class="btn btn-primary"> Logged in as: <%= @user["username"] %> </a> | <a class="btn btn-primary" href="/logout" role="button">Logout</a> | <a class="btn btn-primary" href="/places" role="button">Home</a> 
           <% end %>
         </span>
       </div>
