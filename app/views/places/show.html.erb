@@ -10,6 +10,11 @@
         <div class="card-body">
           <h3 class="card-title"><%= entry["title"] %></h3>
           <h6 class="card-subtitle mb-2 text-muted"><%= entry["occurred_on"] %></h6>
+          <% if entry.uploaded_image.attached? %>
+            <div class="card-image">
+              <%= image_tag entry.uploaded_image, class: "img-fluid" %>
+            </div>
+          <% end %>
           <p class="card-text"><%= entry["description"] %></p>
         </div>
       </div>
